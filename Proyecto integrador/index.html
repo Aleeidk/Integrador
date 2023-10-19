@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Velocidad</title>
+    <link rel="stylesheet" type="text/css" href="estilos1.css">
+</head>
+<body bgcolor="#CFFFF9"><h1 align="center"><font face="Arial" size="8px"></font></h1>
+    <header class="header">
+        <div class="container">
+        <div class="btn-menu">
+            <label for="btn-menu"></label>
+        </div>
+            
+            <nav class="menu">
+                <a href="Proyecto.html">Cinemática</a>
+                <a href="index.html">Presi&oacuten</a>
+                <a href="#">Blog</a>
+                <a href="#">Contacto</a>
+            </nav>
+        </div>
+    </header>
+    <div class="capa"></div>
+    <div align="center">
+    <br><br><br><br><br><br><h1>Calculadora de Presión</h1>
+    
+    <form id="presion-form">
+        <label for="calculo">Calcular:</label>
+        <select id="calculo" name="calculo">
+            <option value="presion">Presión (P)</option>
+            <option value="fuerza">Fuerza (F)</option>
+            <option value="area">Área (A)</option>
+        </select>
+        
+        <div id="input-container">
+            <label for="presion">Presión (Pa):</label>
+            <input type="number" id="presion" name="presion">
+            <label for="fuerza">Fuerza (N):</label>
+            <input type="number" id="fuerza" name="fuerza">
+            <label for="area">Área (m²):</label>
+            <input type="number" id="area" name="area">
+        </div>
+        
+        <label for="resultado">Resultado:</label>
+        <span id="resultado"></span>
+        
+        <button type="button" onclick="calcularPresion()">Calcular</button>
+        <button type="button" onclick="limpiarValores()">Limpiar Valores</button>
+    </form>
+
+    <script>
+        function calcularPresion() {
+            const calculo = document.getElementById('calculo').value;
+            let resultado;
+
+            if (calculo === 'presion') {
+                const fuerza = parseFloat(document.getElementById('fuerza').value);
+                const area = parseFloat(document.getElementById('area').value);
+                if (!isNaN(fuerza) && !isNaN(area)) {
+                    resultado = fuerza / area;
+                    document.getElementById('resultado').textContent = `La presión es: ${resultado} Pa`;
+                } else {
+                    alert('Ingresa valores válidos para la fuerza y el área.');
+                }
+            } else if (calculo === 'fuerza') {
+                const presion = parseFloat(document.getElementById('presion').value);
+                const area = parseFloat(document.getElementById('area').value);
+                if (!isNaN(presion) && !isNaN(area)) {
+                    resultado = presion * area;
+                    document.getElementById('resultado').textContent = `La fuerza es: ${resultado} N`;
+                } else {
+                    alert('Ingresa valores válidos para la presión y el área.');
+                }
+            } else if (calculo === 'area') {
+                const presion = parseFloat(document.getElementById('presion').value);
+                const fuerza = parseFloat(document.getElementById('fuerza').value);
+                if (!isNaN(presion) && !isNaN(fuerza)) {
+                    resultado = fuerza / presion;
+                    document.getElementById('resultado').textContent = `El área es: ${resultado} m²`;
+                } else {
+                    alert('Ingresa valores válidos para la presión y la fuerza.');
+                }
+            }
+        }
+
+        function limpiarValores() {
+            document.getElementById('presion').value = '';
+            document.getElementById('fuerza').value = '';
+            document.getElementById('area').value = '';
+            document.getElementById('resultado').textContent = '';
+        }
+
+        document.getElementById('calculo').addEventListener('change', function() {
+            const calculo = this.value;
+            const calculoPresion = document.getElementById('presion');
+            const calculoFuerza = document.getElementById('fuerza');
+            const calculoArea = document.getElementById('area');
+
+            if (calculo === 'presion') {
+                calculoPresion.disabled = true;
+                calculoFuerza.disabled = false;
+                calculoArea.disabled = false;
+            } else if (calculo === 'fuerza') {
+                calculoPresion.disabled = false;
+                calculoFuerza.disabled = true;
+                calculoArea.disabled = false;
+            } else if (calculo === 'area') {
+                calculoPresion.disabled = false;
+                calculoFuerza.disabled = false;
+                calculoArea.disabled = true;
+            }
+        });
+    </script>
+</div>
+</body>
+</html>

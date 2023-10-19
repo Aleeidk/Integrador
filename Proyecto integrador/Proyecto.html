@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FisicWeb</title>
+	<link rel="stylesheet" href="estilos.css">
+	<style>
+	</style>
+</head>
+<body bgcolor="#CFFFF9"><h1 align="center"><font face="Arial" size="8px">FisicWeb</font></h1>
+	 <br><br><header class="header">
+        <div class="container">
+        <div class="btn-menu">
+            <label for="btn-menu"></label>
+        </div>
+            
+            <nav class="menu">
+                <a href="Proyecto.html">Cinemática</a>
+                <a href="index.html">Presión</a>
+                <a href="#">Blog</a>
+                <a href="#">Contacto</a>
+            </nav>
+        </div>
+    </header>
+    <div class="capa"></div>
+    <div align="center">
+	
+    <h1>Calculadora de Velocidad</h1>
+    
+    <form id="velocidad-form">
+        <label for="calculo">Calcular:</label>
+        <select id="calculo" name="calculo">
+            <option value="velocidad">Velocidad (v)</option>
+            <option value="distancia">Distancia (d)</option>
+            <option value="tiempo">Tiempo (t)</option>
+        </select>
+        
+        <div id="input-container">
+            <label for="distancia">Distancia (m):</label>
+            <input type="number" id="distancia" name="distancia">
+            <label for="tiempo">Tiempo (s):</label>
+            <input type="number" id="tiempo" name="tiempo">
+            <label for="velocidad">Velocidad (m/s):</label>
+            <input type="number" id="velocidad" name="velocidad">
+        </div>
+        
+        <label for="resultado">Resultado:</label>
+        <span id="resultado"></span>
+        
+        <button type="button" onclick="calcularVelocidad()">Calcular</button>
+        <button type="button" onclick="limpiarValores()">Limpiar Valores</button>
+    </form>
+
+    <script>
+        function calcularVelocidad() {
+            const calculo = document.getElementById('calculo').value;
+            let resultado;
+
+            if (calculo === 'velocidad') {
+                const distancia = parseFloat(document.getElementById('distancia').value);
+                const tiempo = parseFloat(document.getElementById('tiempo').value);
+                if (!isNaN(distancia) && !isNaN(tiempo)) {
+                    resultado = distancia / tiempo;
+                    document.getElementById('resultado').textContent = `La velocidad es: ${resultado} m/s`;
+                } else {
+                    alert('Ingresa valores válidos para la distancia y el tiempo.');
+                }
+            } else if (calculo === 'distancia') {
+                const velocidad = parseFloat(document.getElementById('velocidad').value);
+                const tiempo = parseFloat(document.getElementById('tiempo').value);
+                if (!isNaN(velocidad) && !isNaN(tiempo)) {
+                    resultado = velocidad * tiempo;
+                    document.getElementById('resultado').textContent = `La distancia es: ${resultado} metros`;
+                } else {
+                    alert('Ingresa valores válidos para la velocidad y el tiempo.');
+                }
+            } else if (calculo === 'tiempo') {
+                const distancia = parseFloat(document.getElementById('distancia').value);
+                const velocidad = parseFloat(document.getElementById('velocidad').value);
+                if (!isNaN(distancia) && !isNaN(velocidad)) {
+                    resultado = distancia / velocidad;
+                    document.getElementById('resultado').textContent = `El tiempo es: ${resultado} segundos`;
+                } else {
+                    alert('Ingresa valores válidos para la distancia y la velocidad.');
+                }
+            }
+        }
+
+        function limpiarValores() {
+            document.getElementById('distancia').value = '';
+            document.getElementById('tiempo').value = '';
+            document.getElementById('velocidad').value = '';
+            document.getElementById('resultado').textContent = '';
+        }
+
+        document.getElementById('calculo').addEventListener('change', function() {
+            const calculo = this.value;
+            const calculoDistancia = document.getElementById('distancia');
+            const calculoTiempo = document.getElementById('tiempo');
+            const calculoVelocidad = document.getElementById('velocidad');
+
+            if (calculo === 'velocidad') {
+                calculoDistancia.disabled = false;
+                calculoTiempo.disabled = false;
+                calculoVelocidad.disabled = true;
+            } else if (calculo === 'distancia') {
+                calculoDistancia.disabled = true;
+                calculoTiempo.disabled = false;
+                calculoVelocidad.disabled = false;
+            } else if (calculo === 'tiempo') {
+                calculoDistancia.disabled = false;
+                calculoTiempo.disabled = true;
+                calculoVelocidad.disabled = false;
+            }
+        });
+    </script>
+	
+
+</body>
+</html>

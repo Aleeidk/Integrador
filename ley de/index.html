@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coulomb</title>
+</head>
+<body>
+    <h1>Coulomb</h1>
+    <form id="coulombForm">
+        <label for="q1">Carga 1 (Coulombs):</label>
+        <input type="text" id="q1" name="q1" placeholder="Ingrese la carga 1" ><br><br>
+        
+        <label for="q2">Carga 2 (Coulombs):</label>
+        <input type="text" id="q2" name="q2" placeholder="Ingrese la carga 2"><br><br>
+        
+        <label for="d">Distancia (metros):</label>
+        <input type="text" id="d" name="d" placeholder="Ingrese la distancia"><br><br>
+        
+        <input type="button" value="Calcular Fuerza Electrica" onclick="calcularFuerza()">
+    </form>
+    
+    <div id="resultado"></div>
+    
+    <script>
+        function calcularFuerza() {
+            var q1 = parseFloat(document.getElementById("q1").value);
+            var q2 = parseFloat(document.getElementById("q2").value);
+            var r = parseFloat(document.getElementById("d").value);
+            
+            var k = 9000000000;  // Constante de Coulomb en N m^2/C^2
+            var force = (k * (q1 * q2) )/ (r * r);
+            
+            document.getElementById("resultado").innerHTML = "La fuerza electrica es de " + force.toFixed(2) + " Newtons.";
+        }
+    </script>
+</body>
+</html>

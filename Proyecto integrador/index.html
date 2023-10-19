@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -44,33 +44,33 @@
 
     <section class="main_calculate">
 
-    
-    <h1>Calculadora de Presión</h1>
 
-    <form class="main_calculate_form" id="presion-form">
-        <label for="calculo">Calcular:</label>
-        <select id="calculo" name="calculo">
-            <option value="presion">Presión (P)</option>
-            <option value="fuerza">Fuerza (F)</option>
-            <option value="area">Área (A)</option>
-        </select>
+        <h1>Calculadora de Presión</h1>
 
-        <div id="input-container" class="main_inputs">
-            <label for="presion">Presión (Pa):</label>
-            <input type="number" id="presion" name="presion">
-            <label for="fuerza">Fuerza (N):</label>
-            <input type="number" id="fuerza" name="fuerza">
-            <label for="area">Área (m²):</label>
-            <input type="number" id="area" name="area">
-        </div>
+        <form class="main_calculate_form" id="presion-form">
+            <label for="calculo">Calcular:</label>
+            <select id="calculo" name="calculo">
+                <option value="presion">Presión (P)</option>
+                <option value="fuerza">Fuerza (F)</option>
+                <option value="area">Área (A)</option>
+            </select>
 
-        <label for="resultado">Resultado:</label>
-        <span id="resultado"></span>
+            <div id="input-container" class="main_inputs">
+                <label for="presion">Presión (Pa):</label>
+                <input type="number" id="presion" name="presion">
+                <label for="fuerza">Fuerza (N):</label>
+                <input type="number" id="fuerza" name="fuerza">
+                <label for="area">Área (m²):</label>
+                <input type="number" id="area" name="area">
+            </div>
 
-        <button class="main_button1" type="button" onclick="calcularPresion()">Calcular</button>
-        <button class="main_button2" type="button" onclick="limpiarValores()">Limpiar Valores</button>
-    </form>
-</section>
+            <label for="resultado">Resultado:</label>
+            <span id="resultado"></span>
+
+            <button class="main_button1" type="button" onclick="calcularPresion()">Calcular</button>
+            <button class="main_button2" type="button" onclick="limpiarValores()">Limpiar Valores</button>
+        </form>
+    </section>
 
     <script>
         function calcularPresion() {

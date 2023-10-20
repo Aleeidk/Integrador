@@ -1,121 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>FisicWeb</title>
-	<link rel="stylesheet" href="estilos.css">
-	<style>
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <title>Calculadora de presion</title>
 </head>
-<body bgcolor="#CFFFF9"><h1 align="center"><font face="Arial" size="8px">FisicWeb</font></h1>
-	 <br><br><header class="header">
-        <div class="container">
-        <div class="btn-menu">
-            <label for="btn-menu"></label>
-        </div>
-            
-            <nav class="menu">
-                <a href="Proyecto.html">Cinemática</a>
-                <a href="index.html">Presión</a>
-                <a href="#">Blog</a>
-                <a href="#">Contacto</a>
-            </nav>
-        </div>
+
+<body><h1 align="center"><font face="Arial" size="8px">FisicWeb</font></h1>
+    <header class="main_content">
+        <nav class="main_content_menu">
+            <div class="main_content_menu_hamburgesa">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-deep" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M4 6h16"></path>
+                    <path d="M7 12h13"></path>
+                    <path d="M10 18h10"></path>
+                </svg>
+            </div>
+            <ul class="main_menu_display">
+
+                <li class="main_menu_link">
+                    <a href="Principal.html">Inicio</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="Proyecto.html">Cinematica</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="index.html">Presi&oacuten</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="coulomb.html">Electroestatica</a> 
+                </li>
+
+            </ul>
+        </nav>
     </header>
-    <div class="capa"></div>
-    <div align="center">
-	
-    <h1>Calculadora de Velocidad</h1>
-    
-    <form id="velocidad-form">
-        <label for="calculo">Calcular:</label>
-        <select id="calculo" name="calculo">
-            <option value="velocidad">Velocidad (v)</option>
-            <option value="distancia">Distancia (d)</option>
-            <option value="tiempo">Tiempo (t)</option>
-        </select>
-        
-        <div id="input-container">
-            <label for="distancia">Distancia (m):</label>
-            <input type="number" id="distancia" name="distancia">
-            <label for="tiempo">Tiempo (s):</label>
-            <input type="number" id="tiempo" name="tiempo">
-            <label for="velocidad">Velocidad (m/s):</label>
-            <input type="number" id="velocidad" name="velocidad">
-        </div>
-        
-        <label for="resultado">Resultado:</label>
-        <span id="resultado"></span>
-        
-        <button type="button" onclick="calcularVelocidad()">Calcular</button>
-        <button type="button" onclick="limpiarValores()">Limpiar Valores</button>
-    </form>
+
+    <section class="main_calculate">
+
+
+        <h1>Calculadora de Presión</h1>
+
+        <form class="main_calculate_form" id="presion-form">
+            <label for="calculo">Calcular:</label>
+            <select id="calculo" name="calculo"  onchange="cambiarExplicacion()">
+                <option value="presion">Presión (P)</option>
+                <option value="fuerza">Fuerza (F)</option>
+                <option value="area">Área (A)</option>
+            </select>
+
+            <div id="input-container" class="main_inputs">
+                <label for="presion">Presión (Pa):</label>
+                <input type="number" id="presion" name="presion">
+                <label for="fuerza">Fuerza (N):</label>
+                <input type="number" id="fuerza" name="fuerza">
+                <label for="area">Área (m²):</label>
+                <input type="number" id="area" name="area">
+            </div>
+
+            <label for="resultado">Resultado:</label>
+            <span id="resultado"></span>
+
+            <button class="main_button1" type="button" onclick="calcularPresion()">Calcular</button>
+            <button class="main_button2" type="button" onclick="limpiarValores()">Limpiar Valores</button>
+        </form>
+    </section>
 
     <script>
-        function calcularVelocidad() {
+        function calcularPresion() {
             const calculo = document.getElementById('calculo').value;
             let resultado;
 
-            if (calculo === 'velocidad') {
-                const distancia = parseFloat(document.getElementById('distancia').value);
-                const tiempo = parseFloat(document.getElementById('tiempo').value);
-                if (!isNaN(distancia) && !isNaN(tiempo)) {
-                    resultado = distancia / tiempo;
-                    document.getElementById('resultado').textContent = `La velocidad es: ${resultado} m/s`;
+            if (calculo === 'presion') {
+                const fuerza = parseFloat(document.getElementById('fuerza').value);
+                const area = parseFloat(document.getElementById('area').value);
+                if (!isNaN(fuerza) && !isNaN(area)) {
+                    resultado = fuerza / area;
+                    document.getElementById('resultado').textContent = `La presión es: ${resultado} Pa`;
                 } else {
-                    alert('Ingresa valores válidos para la distancia y el tiempo.');
+                    alert('Ingresa valores válidos para la fuerza y el área.');
                 }
-            } else if (calculo === 'distancia') {
-                const velocidad = parseFloat(document.getElementById('velocidad').value);
-                const tiempo = parseFloat(document.getElementById('tiempo').value);
-                if (!isNaN(velocidad) && !isNaN(tiempo)) {
-                    resultado = velocidad * tiempo;
-                    document.getElementById('resultado').textContent = `La distancia es: ${resultado} metros`;
+            } else if (calculo === 'fuerza') {
+                const presion = parseFloat(document.getElementById('presion').value);
+                const area = parseFloat(document.getElementById('area').value);
+                if (!isNaN(presion) && !isNaN(area)) {
+                    resultado = presion * area;
+                    document.getElementById('resultado').textContent = `La fuerza es: ${resultado} N`;
                 } else {
-                    alert('Ingresa valores válidos para la velocidad y el tiempo.');
+                    alert('Ingresa valores válidos para la presión y el área.');
                 }
-            } else if (calculo === 'tiempo') {
-                const distancia = parseFloat(document.getElementById('distancia').value);
-                const velocidad = parseFloat(document.getElementById('velocidad').value);
-                if (!isNaN(distancia) && !isNaN(velocidad)) {
-                    resultado = distancia / velocidad;
-                    document.getElementById('resultado').textContent = `El tiempo es: ${resultado} segundos`;
+            } else if (calculo === 'area') {
+                const presion = parseFloat(document.getElementById('presion').value);
+                const fuerza = parseFloat(document.getElementById('fuerza').value);
+                if (!isNaN(presion) && !isNaN(fuerza)) {
+                    resultado = fuerza / presion;
+                    document.getElementById('resultado').textContent = `El área es: ${resultado} m²`;
                 } else {
-                    alert('Ingresa valores válidos para la distancia y la velocidad.');
+                    alert('Ingresa valores válidos para la presión y la fuerza.');
                 }
             }
         }
 
         function limpiarValores() {
-            document.getElementById('distancia').value = '';
-            document.getElementById('tiempo').value = '';
-            document.getElementById('velocidad').value = '';
+            document.getElementById('presion').value = '';
+            document.getElementById('fuerza').value = '';
+            document.getElementById('area').value = '';
             document.getElementById('resultado').textContent = '';
         }
 
-        document.getElementById('calculo').addEventListener('change', function() {
+        document.getElementById('calculo').addEventListener('change', function () {
             const calculo = this.value;
-            const calculoDistancia = document.getElementById('distancia');
-            const calculoTiempo = document.getElementById('tiempo');
-            const calculoVelocidad = document.getElementById('velocidad');
+            const calculoPresion = document.getElementById('presion');
+            const calculoFuerza = document.getElementById('fuerza');
+            const calculoArea = document.getElementById('area');
 
-            if (calculo === 'velocidad') {
-                calculoDistancia.disabled = false;
-                calculoTiempo.disabled = false;
-                calculoVelocidad.disabled = true;
-            } else if (calculo === 'distancia') {
-                calculoDistancia.disabled = true;
-                calculoTiempo.disabled = false;
-                calculoVelocidad.disabled = false;
-            } else if (calculo === 'tiempo') {
-                calculoDistancia.disabled = false;
-                calculoTiempo.disabled = true;
-                calculoVelocidad.disabled = false;
+            if (calculo === 'presion') {
+                calculoPresion.disabled = true;
+                calculoFuerza.disabled = false;
+                calculoArea.disabled = false;
+            } else if (calculo === 'fuerza') {
+                calculoPresion.disabled = false;
+                calculoFuerza.disabled = true;
+                calculoArea.disabled = false;
+            } else if (calculo === 'area') {
+                calculoPresion.disabled = false;
+                calculoFuerza.disabled = false;
+                calculoArea.disabled = true;
             }
         });
+        
     </script>
-	
+    
+</div>
+   
 
 </body>
+
 </html>

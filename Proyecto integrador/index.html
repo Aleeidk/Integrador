@@ -24,18 +24,17 @@
             </div>
             <ul class="main_menu_display">
 
-
                 <li class="main_menu_link">
-                    <a href="index.html">Cinematica</a>
+                    <a href="Principal.html">Inicio</a>
                 </li>
                 <li class="main_menu_link">
-                    <a href="index.html">Pre</a>
+                    <a href="Proyecto.html">Cinematica</a>
                 </li>
                 <li class="main_menu_link">
-                    <a href="index.html">Blog</a>
+                    <a href="index.html">Presi&oacuten</a>
                 </li>
                 <li class="main_menu_link">
-                    <a href="index.html">Contacto</a>
+                    <a href="coulomb.html">Electroestatica</a> 
                 </li>
 
             </ul>
@@ -49,7 +48,7 @@
 
         <form class="main_calculate_form" id="presion-form">
             <label for="calculo">Calcular:</label>
-            <select id="calculo" name="calculo">
+            <select id="calculo" name="calculo"  onchange="cambiarExplicacion()">
                 <option value="presion">Presión (P)</option>
                 <option value="fuerza">Fuerza (F)</option>
                 <option value="area">Área (A)</option>
@@ -134,8 +133,22 @@
                 calculoArea.disabled = true;
             }
         });
+        function cambiarExplicacion() {
+            var calculo = document.getElementById('calculo').value;
+            var explicacion = document.getElementById('explicacion');
+
+            if (calculo === 'presion') {
+                explicacion.value = "Aquí va la explicación de cómo calcular la presión.<p>entonces esto cambi";
+            } else if (calculo === 'fuerza') {
+                explicacion.value = "Aquí va la explicación de cómo calcular la fuerza.";
+            } else if (calculo === 'area') {
+                explicacion.value = "Aquí va la explicación de cómo calcular el área.";
+            }
+        }
     </script>
-    </div>
+    
+</div>
+    
 
 </body>
 

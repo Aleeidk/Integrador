@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 </head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/Style.css">
-    <link rel="stylesheet" href="./css/normalize.css">
-    <title>Coulomb</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./css/Style.css">
+<link rel="stylesheet" href="./css/normalize.css">
+<title>Coulomb</title>
 </head>
+
 <body>
     <header class="main_content">
         <nav class="main_content_menu">
@@ -19,34 +20,56 @@
                     <path d="M7 12h13"></path>
                     <path d="M10 18h10"></path>
                 </svg>
-                
-    <h1>Ley de Coulomb</h1>
-    <form id="coulombForm">
-        <label for="q1">Carga 1 (Coulombs):</label>
-        <input type="text" id="q1" name="q1" placeholder="Ingrese la carga 1" ><br><br>
-        
-        <label for="q2">Carga 2 (Coulombs):</label>
-        <input type="text" id="q2" name="q2" placeholder="Ingrese la carga 2"><br><br>
-        
-        <label for="d">Distancia (metros):</label>
-        <input type="text" id="d" name="d" placeholder="Ingrese la distancia"><br><br>
-        
-        <input type="button" value="Calcular Fuerza Electrica" onclick="calcularFuerza()">
-    </form>
-    
-    <div id="resultado"></div>
-    
-    <script>
-        function calcularFuerza() {
-            var q1 = parseFloat(document.getElementById("q1").value);
-            var q2 = parseFloat(document.getElementById("q2").value);
-            var r = parseFloat(document.getElementById("d").value);
-            
-            var k = 9000000000;  // Constante de Coulomb en N m^2/C^2
-            var force = (k * (q1 * q2) )/ (r * r);
-            
-            document.getElementById("resultado").innerHTML = "La fuerza electrica es de " + force.toFixed(2) + " Newtons.";
-        }
-    </script>
+            </div>
+            <ul class="main_menu_display">
+
+                <li class="main_menu_link">
+                    <a href="Principal.html">Inicio</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="Proyecto.html">Cinematica</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="index.html">Presi&oacuten</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+        <section class="main_calculate">
+
+            <h1>Ley de Coulomb</h1>
+            <form id="coulombForm" class="main_calculate_form">
+                <div id="input-container" class="main_inputs">
+                    <label for="q1">Carga 1 (Coulombs):</label>
+                    <input type="text" id="q1" name="q1" placeholder="Ingrese la carga 1"><br><br>
+
+                    <label for="q2">Carga 2 (Coulombs):</label>
+                    <input type="text" id="q2" name="q2" placeholder="Ingrese la carga 2"><br><br>
+
+                    <label for="d">Distancia (metros):</label>
+                    <input type="text" id="d" name="d" placeholder="Ingrese la distancia"><br><br>
+
+                    <input class="main_button1" type="button" value="Calcular Fuerza Electrica"
+                        onclick="calcularFuerza()">
+                </div>
+            </form>
+        </section>
+        <div id="resultado"></div>
+
+        <script>
+            function calcularFuerza() {
+                var q1 = parseFloat(document.getElementById("q1").value);
+                var q2 = parseFloat(document.getElementById("q2").value);
+                var r = parseFloat(document.getElementById("d").value);
+
+                var k = 9000000000;  // Constante de Coulomb en N m^2/C^2
+                var force = (k * (q1 * q2)) / (r * r);
+
+                document.getElementById("resultado").innerHTML = "La fuerza electrica es de " + force.toFixed(2) + " Newtons.";
+            }
+        </script>
 </body>
+
 </html>

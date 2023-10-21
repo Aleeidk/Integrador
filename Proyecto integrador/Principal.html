@@ -9,7 +9,8 @@
     <title>Calculadora de presion</title>
 </head>
 
-<body><h1 align="center"><font face="Arial" size="8px">FisicWeb</font></h1>
+<body>
+    <h1>FisicWeb</h1>
     <header class="main_content">
         <nav class="main_content_menu">
             <div class="main_content_menu_hamburgesa">
@@ -34,49 +35,51 @@
                     <a href="index.html">Presi&oacuten</a>
                 </li>
                 <li class="main_menu_link">
-                    <a href="coulomb.html">Electroestatica</a> 
+                    <a href="coulomb.html">Electroestatica</a>
                 </li>
-               
+
 
             </ul>
         </nav>
     </header>
+    <section class="main_calculate">
+        
 
- 
-    
-</div>
-<form class="main_calculate_form" id="presion-form"></form>
-<select id="eleccion" name="eleccion">
-    <option value="cinematica">Cinemática</option>
-    <option value="presion">Presión</option>
-    <option value="coulumb">coulumb</option>
-</select>
-</form>
+        <div id="input-container" class="main_inputs">
+        <form class="main_calculate_form" id="presion-form"></form>
+        <select id="eleccion" name="eleccion">
+            <option value="cinematica">Cinemática</option>
+            <option value="presion">Presión</option>
+            <option value="coulumb">coulumb</option>
+        </select>
+        </form>
 
 
-    <!-- Generador de Ejercicios de Práctica -->
-    <h2 align="center">Ejercicio de Práctica</h2>
-    <div id="ejercicio" align="center">
-        <button onclick="generarEjercicio()">Generar Ejercicio</button>
-        <label for="pregunta">Ejercicio:</label>
-        <p id="pregunta"></p>
-        <label for="respuesta">Escribe tu respuesta:</label>
-       <footer><input type="text" style="height: 10%;" id="respuesta" placeholder="Escribe tu respuesta aquí">
-        <button onclick="verificarRespuesta()" style="height: 50px;">Verificar</button>
-    </div>
+        <!-- Generador de Ejercicios de Práctica -->
+        <h2 align="center">Ejercicio de Práctica</h2>
+        <div id="ejercicio" align="center">
+            <button class="main_button1" onclick="generarEjercicio()">Generar Ejercicio</button>
+            <label for="pregunta">Ejercicio:</label>
+            <p id="pregunta"></p>
+            <label for="respuesta">Escribe tu respuesta:</label>
+            <footer><input type="text" style="height: 10%;" id="respuesta" placeholder="Escribe tu respuesta aquí">
+                <button class="main_button2" onclick="verificarRespuesta()" style="height: 50px;">Verificar</button>
+        </div>
 
-    <h2 align="center">Explicación del Procedimiento</h2>
-    <div align="center">
-        <label for="explicacion">Procedimiento de Resolución:</label>
-        <br><br><textarea id="explicacion" rows="4" cols="50" disabled></textarea>
-    </div></footer>
-
+        <h2 align="center">Explicación del Procedimiento</h2>
+        <div align="center">
+            <label for="explicacion">Procedimiento de Resolución:</label>
+            <br><br><textarea id="explicacion" rows="4" cols="50" disabled></textarea>
+        </div>
+        </footer>
+        </div>
+    </section>
     <script>
         var ejercicios = [
             { pregunta: "Si una fuerza de 2000 N se aplica sobre un área de 2 metros cuadrados, ¿cuál es la presión en pascales?", respuesta: "1000" },
             { pregunta: " Si la presión sobre una superficie es de 5000 Pa y el área es de 4 metros cuadrados, ¿cuál es la fuerza ejercida?", respuesta: "20000" },
             { pregunta: "  Si la presión en un recipiente es de 8000 Pa y el área es de 5 metros cuadrados, ¿cuál es la fuerza ejercida sobre el recipiente?", respuesta: "40000" },
-            
+
             // Agrega más ejercicios aquí
         ];
 
@@ -99,7 +102,7 @@
         }
     </script>
     </div>
-    
+
 
 </body>
 

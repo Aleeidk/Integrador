@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 </head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/Style.css">
-    <link rel="stylesheet" href="./css/normalize.css">
-    <title>Coulomb</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./css/Style.css">
+<link rel="stylesheet" href="./css/normalize.css">
+<title>Coulomb</title>
 </head>
+
 <body>
     <header class="main_content">
         <nav class="main_content_menu">
@@ -19,26 +20,7 @@
                     <path d="M7 12h13"></path>
                     <path d="M10 18h10"></path>
                 </svg>
-            </div>
-            <ul class="main_menu_display">
-
-                <li class="main_menu_link">
-                    <a href="Principal.html">Inicio</a>
-                </li>
-                <li class="main_menu_link">
-                    <a href="Proyecto.html">Cinematica</a>
-                </li>
-                <li class="main_menu_link">
-                    <a href="index.html">Presi&oacuten</a>
-                </li>
-                <li class="main_menu_link">
-                    <a href="coulomb.html">Electroestatica</a> 
-                </li>
-
-            </ul>
-        </nav>
-    </header>
-
+                
     <h1>Ley de Coulomb</h1>
     <form id="coulombForm">
         <label for="q1">Carga 1 (Coulombs):</label>
@@ -50,8 +32,7 @@
         <label for="d">Distancia (metros):</label>
         <input type="text" id="d" name="d" placeholder="Ingrese la distancia"><br><br>
         
-        <button class="main_button1" type="button" onclick="calcularFuerza()">Calcular Fuerza Electrica</button>
-        <button class="main_button2" type="button" onclick="limpiarValores()">Limpiar Valores</button>
+        <input type="button" value="Calcular Fuerza Electrica" onclick="calcularFuerza()">
     </form>
     
     <div id="resultado"></div>
@@ -67,12 +48,7 @@
             
             document.getElementById("resultado").innerHTML = "La fuerza electrica es de " + force.toFixed(2) + " Newtons.";
         }
-        function limpiarValores() {
-            document.getElementById('q1').value = '';
-            document.getElementById('q2').value = '';
-            document.getElementById('d').value = '';
-            document.getElementById('resultado').textContent = '';
-        }
     </script>
 </body>
+
 </html>

@@ -18,13 +18,19 @@ body {
   background-color: var(--bg-body);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+h1{
+  color: var(--text-color);
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
 .main_content_menu {
   width: 100%;
   height: 50px;
-  background-color: var(--bg-menu);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  position: fixed;
 
 }
 
@@ -66,7 +72,7 @@ body {
 }
 
 .main_calculate {
-  margin-top: 50px;
+  margin-top: 90px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -149,6 +155,11 @@ input {
   cursor: pointer;
   margin-bottom: 30px;
 
+}
+footer{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 @media screen and (max-width: 600px) {

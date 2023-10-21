@@ -19,7 +19,26 @@
                     <path d="M7 12h13"></path>
                     <path d="M10 18h10"></path>
                 </svg>
-                
+            </div>
+            <ul class="main_menu_display">
+
+                <li class="main_menu_link">
+                    <a href="Principal.html">Inicio</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="Proyecto.html">Cinematica</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="index.html">Presi&oacuten</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="coulomb.html">Electroestatica</a> 
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
     <h1>Ley de Coulomb</h1>
     <form id="coulombForm">
         <label for="q1">Carga 1 (Coulombs):</label>
@@ -31,7 +50,8 @@
         <label for="d">Distancia (metros):</label>
         <input type="text" id="d" name="d" placeholder="Ingrese la distancia"><br><br>
         
-        <input type="button" value="Calcular Fuerza Electrica" onclick="calcularFuerza()">
+        <button class="main_button1" type="button" onclick="calcularFuerza()">Calcular Fuerza Electrica</button>
+        <button class="main_button2" type="button" onclick="limpiarValores()">Limpiar Valores</button>
     </form>
     
     <div id="resultado"></div>
@@ -46,6 +66,12 @@
             var force = (k * (q1 * q2) )/ (r * r);
             
             document.getElementById("resultado").innerHTML = "La fuerza electrica es de " + force.toFixed(2) + " Newtons.";
+        }
+        function limpiarValores() {
+            document.getElementById('q1').value = '';
+            document.getElementById('q2').value = '';
+            document.getElementById('d').value = '';
+            document.getElementById('resultado').textContent = '';
         }
     </script>
 </body>

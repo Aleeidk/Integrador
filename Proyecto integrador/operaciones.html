@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <title>Calculadora de presion</title>
+</head>
+
+<body>
+    <header class="main_content">
+        <nav class="main_content_menu">
+            <div class="main_content_menu_hamburgesa">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-deep" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M4 6h16"></path>
+                    <path d="M7 12h13"></path>
+                    <path d="M10 18h10"></path>
+                </svg>
+            </div>
+            <ul class="main_menu_display">
+
+                <li class="main_menu_link">
+                    <a href="Principal.html">Inicio</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="Proyecto.html">Cinematica</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="index.html">Presi&oacuten</a>
+                </li>
+                <li class="main_menu_link">
+                    <a href="coulomb.html">Electroestatica</a> 
+                </li>
+                
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main_calculate">
+
+
+        <h1>Calculadora de Presión</h1>
+
+        <form class="main_calculate_form" id="presion-form">
+            <label for="calculo">Calcular:</label>
+            <select id="calculo" name="calculo"  onchange="cambiarExplicacion()">
+                <option value="presion">Presión (P)</option>
+                <option value="fuerza">Fuerza (F)</option>
+                <option value="area">Área (A)</option>
+            </select>
+
+            <div id="input-container" class="main_inputs">
+                <label for="presion">Presión (Pa):</label>
+                <input type="number" id="presion" name="presion">
+                <label for="fuerza">Fuerza (N):</label>
+                <input type="number" id="fuerza" name="fuerza">
+                <label for="area">Área (m²):</label>
+                <input type="number" id="area" name="area">
+            </div>
+
+            <label for="resultado">Resultado:</label>
+            <span id="resultado"></span>
+
+            <button class="main_button1" type="button" onclick="calcularPresion()">Calcular</button>
+            <button class="main_button2" type="button" onclick="limpiarValores()">Limpiar Valores</button>
+        </form>
+    </section>
+
+    
+</div>
+    
+
+</body>
+<script src="..//js/operacones.js"></script>
+</html>

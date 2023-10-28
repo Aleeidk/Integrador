@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <h1>FisicWeb</h1>
     <header class="main_content">
         <nav class="main_content_menu">
             <div class="main_content_menu_hamburgesa">
@@ -34,48 +35,75 @@
                     <a href="index.html">Presi&oacuten</a>
                 </li>
                 <li class="main_menu_link">
-                    <a href="coulomb.html">Electroestatica</a> 
+                    <a href="coulomb.html">Electroestatica</a>
                 </li>
-                
+
 
             </ul>
         </nav>
     </header>
-
     <section class="main_calculate">
+        
 
-
-        <h1>Calculadora de Presión</h1>
-
-        <form class="main_calculate_form" id="presion-form">
-            <label for="calculo">Calcular:</label>
-            <select id="calculo" name="calculo"  onchange="cambiarExplicacion()">
-                <option value="presion">Presión (P)</option>
-                <option value="fuerza">Fuerza (F)</option>
-                <option value="area">Área (A)</option>
-            </select>
-
-            <div id="input-container" class="main_inputs">
-                <label for="presion">Presión (Pa):</label>
-                <input type="number" id="presion" name="presion">
-                <label for="fuerza">Fuerza (N):</label>
-                <input type="number" id="fuerza" name="fuerza">
-                <label for="area">Área (m²):</label>
-                <input type="number" id="area" name="area">
-            </div>
-
-            <label for="resultado">Resultado:</label>
-            <span id="resultado"></span>
-
-            <button class="main_button1" type="button" onclick="calcularPresion()">Calcular</button>
-            <button class="main_button2" type="button" onclick="limpiarValores()">Limpiar Valores</button>
+        <div id="input-container" class="main_inputs">
+        <form class="main_calculate_form" id="presion-form"></form>
+        <select id="eleccion" name="eleccion">
+            <option value="cinematica">Cinemática</option>
+            <option value="presion">Presión</option>
+            <option value="coulumb">coulumb</option>
+        </select>
         </form>
-    </section>
 
-    
-</div>
-    
+
+        <!-- Generador de Ejercicios de Práctica -->
+        <h2 align="center">Ejercicio de Práctica</h2>
+        <div id="ejercicio" align="center">
+            <button class="main_button1" onclick="generarEjercicio()">Generar Ejercicio</button>
+            <label for="pregunta">Ejercicio:</label>
+            <p id="pregunta"></p>
+            <label for="respuesta">Escribe tu respuesta:</label>
+            <footer><input type="text" style="height: 10%;" id="respuesta" placeholder="Escribe tu respuesta aquí">
+                <button class="main_button2" onclick="verificarRespuesta()" style="height: 50px;">Verificar</button>
+        </div>
+
+        <h2 align="center">Explicación del Procedimiento</h2>
+        <div align="center">
+            <label for="explicacion">Procedimiento de Resolución:</label>
+            <br><br><textarea id="explicacion" rows="4" cols="50" disabled></textarea>
+        </div>
+        </footer>
+        </div>
+    </section>
+    <script>
+        var ejercicios = [
+            { pregunta: "Si una fuerza de 2000 N se aplica sobre un área de 2 metros cuadrados, ¿cuál es la presión en pascales?", respuesta: "1000" },
+            { pregunta: " Si la presión sobre una superficie es de 5000 Pa y el área es de 4 metros cuadrados, ¿cuál es la fuerza ejercida?", respuesta: "20000" },
+            { pregunta: "  Si la presión en un recipiente es de 8000 Pa y el área es de 5 metros cuadrados, ¿cuál es la fuerza ejercida sobre el recipiente?", respuesta: "40000" },
+
+            // Agrega más ejercicios aquí
+        ];
+
+        var ejercicioActual = null;
+
+        function generarEjercicio() {
+            ejercicioActual = ejercicios[Math.floor(Math.random() * ejercicios.length)];
+            document.getElementById('pregunta').innerText = ejercicioActual.pregunta;
+        }
+
+        function verificarRespuesta() {
+            var respuesta = document.getElementById('respuesta').value.toLowerCase().trim();
+            var respuestaCorrecta = ejercicioActual.respuesta.toLowerCase().trim();
+
+            if (respuesta === respuestaCorrecta) {
+                alert("¡Felicidades! Tu respuesta es correcta.");
+            } else {
+                alert("Intenta de nuevo. Tu respuesta es incorrecta.");
+            }
+        }
+    </script>
+    </div>
+
 
 </body>
-<script src="..//js/operacones.js"></script>
+
 </html>

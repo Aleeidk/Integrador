@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
-</head>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/Style.css">
     <link rel="stylesheet" href="./css/normalize.css">
-<title>Coulomb</title>
+    <title>Calculadora de Fuerza</title>
 </head>
 
 <body>
@@ -33,34 +33,39 @@
                     </li>
                     <li class="main_menu_link">
                         <a href="coulomb.html">Electroestatica</a>
-                    </li
-                    
+                    </li>
+                    <li class="main_menu_link">
+                        <a href="Entalpia.html">Entalpia</a>
+                    </li>
+                    <li class="main_menu_link">
+                        <a href="newFuerza.html">Newton</a>
+                    </li>
+    
+    
                 </ul>
         </nav>
     </header>
 
-    <section class="main_calculate">
+<section class="main_calculate">
 
-        <h1>Ley de Coulomb</h1>
-        <form id="coulombForm" class="main_calculate_form">
-            <div id="input-container" class="main_inputs">
-                <label for="q1">Carga 1 (Coulombs):</label>
-                <input type="text" id="q1" name="q1" placeholder="Ingrese la carga 1"><br><br>
+    <h1>Calculadora de Fuerza (Ley de Newton)</h1>
+    <form id="coulombForm" class="main_calculate_form">
+        <div id="input-container" class="main_inputs">
+    
+            <label for="masa">Masa (kg):</label>
+            <input type="number" id="masa" placeholder="Ingrese la masa"><br>
 
-                <label for="q2">Carga 2 (Coulombs):</label>
-                <input type="text" id="q2" name="q2" placeholder="Ingrese la carga 2"><br><br>
+            <label for="aceleracion">Aceleración (m/s²):</label>
+            <input type="number" id="aceleracion" placeholder="Ingrese la aceleración"><br>
 
-                <label for="d">Distancia (metros):</label>
-                <input type="text" id="d" name="d" placeholder="Ingrese la distancia"><br><br>
+            <input class="main_button1" type="button" value="Calcular Fuerza " onclick="calcularFuerza()">
+           
+        </div>
+    </form>
+</section>
+<div id="resultado"></div>
 
-                <input class="main_button1" type="button" value="Calcular Fuerza Electrica" onclick="calcularFuerza()">
-            </div>
-        </form>
-    </section>
-    <div id="resultado"></div>
 
-   
 </body>
-<script src="../js/fuerza.js"></script>
-
+<script src="../js/newF.js"></script>
 </html>
